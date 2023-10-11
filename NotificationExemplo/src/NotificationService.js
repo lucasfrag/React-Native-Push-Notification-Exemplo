@@ -22,6 +22,7 @@ class NotificationService {
             },
             onNotification: function (notification) {
                 console.log("[NotificationManager] onNotification:", notification)
+                navegador.navigate(notification.title)
                 // notification.finish(PushNotificationIOS.FetchResult.NoData);
             }
         })
@@ -57,6 +58,25 @@ class NotificationService {
         })
     }
 
+    // Configuração de notificações agendadas
+    agendarNotificacoes = () => {
+        PushNotification.localNotificationSchedule({
+            channelId: "notificador",
+            title: "Tela de redirecionamento", 
+            id: 3,
+            message: "Notificação agendada 1 😉",
+            date: new Date(Date.now() + 5 * 1000),
+            repeatType: "minute",
+            repeatTime: 1
+        })
+    }
+
+    // Passar o atributo "navigation" do React Navigation para as notificações
+    setNavigation = (novoNavegador) => {
+        navegador = novoNavegador
+    }
+
+    // Cancelar todas as notificações
     cancelarTodasNotificacoes = () => {
         PushNotification.cancelAllLocalNotifications();
     }
