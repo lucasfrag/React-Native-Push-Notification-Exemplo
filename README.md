@@ -1,4 +1,4 @@
-# React Native Push Notification - Exemplo
+# React Native Push Notification - Aula
 Projeto criado para exemplifica o uso da biblioteca React Native Push Notification.
 
 ### ⚠️ ATENÇÃO!!!
